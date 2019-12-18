@@ -7,6 +7,7 @@ TorchScript
    :hidden:
 
    torch.jit.supported_ops <jit_builtin_functions>
+   language <jit_language_reference>
 
 .. contents:: :local:
 
@@ -1433,6 +1434,8 @@ Python Functions and Modules
 Many Python's `built-in functions <https://docs.python.org/3/library/functions.html>`_ are supported in TorchScript.
 The :any:`math` module is also supported, but no other Python modules
 (built-in or third party) are supported.
+
+For a full listing of supported Python features, see :ref:`python-language-reference`.
 
 
 Frequently Asked Questions
