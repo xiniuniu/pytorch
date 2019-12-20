@@ -2,11 +2,12 @@ set(TORCH_RPC_TEST_DIR "${TORCH_ROOT}/test/cpp/rpc")
 set(TORCH_RPC_TEST_SOURCES
   ${TORCH_ROOT}/test/cpp/common/main.cpp
   ${TORCH_RPC_TEST_DIR}/test_wire_serialization.cpp
+  ${TORCH_RPC_TEST_DIR}/test_process_group_agent.cpp
 )
 
 add_executable(test_cpp_rpc ${TORCH_RPC_TEST_SOURCES})
-target_include_directories(test_cpp_rpc PRIVATE ${ATen_CPU_INCLUDE})
-target_link_libraries(test_cpp_rpc PRIVATE torch gtest)
+target_include_directories(test_cpp_rpc PRIVATE ${TORCH_INCLUDE_DIRS} ${ATen_CPU_INCLUDE})
+target_link_libraries(test_cpp_rpc PRIVATE torch c10d gtest)
 
 if (USE_CUDA)
   target_link_libraries(test_cpp_rpc PRIVATE
