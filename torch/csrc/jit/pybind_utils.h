@@ -547,6 +547,7 @@ inline IValue toIValue(
     case TypeKind::PyObjectType:
       // convert a py::handle to the IValue that holds the py::object
       return c10::ivalue::ConcretePyObjectHolder::create(obj.cast<py::object>());
+    case TypeKind::RRefType:
     case TypeKind::FunctionType:
       AT_ERROR("Function Values aren't yet supported");
     case TypeKind::CapsuleType:
